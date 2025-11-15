@@ -1,0 +1,17 @@
+Base:
+    cuda_en: false # True/False, 一开始先为 False
+    pcl_type: 0 # 0:pcd, 1:ply
+    pcl_load: 1 # -1 为直接导入完整 pcd/ply，1 为单帧 pcd/ply + 位姿导入
+    rgb_path: /home/pcl/mesh/livomesh/data/FAST_LIVO2/images
+    depth_path: /home/pcl/mesh/livomesh/data/FAST_LIVO2/test
+    output_pcd_path: /home/pcl/mesh/livomesh/output
+    rgb_pose: "color_poses.txt"
+    depth_pose: "depth_poses.txt"
+    save_pcd_en: true
+
+Filter: # 仿照 cloudcompare 的过滤参数
+    enable: true
+    Radius: 0.08 # Filter noise Neighbors
+    Max error: 1.00 # Relative
+    remove_isolated: true  # 是否丢弃找不到邻域的孤立点
+    

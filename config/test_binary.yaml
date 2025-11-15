@@ -1,0 +1,10 @@
+Base:
+    depth_path: /home/pcl/mesh/livomesh/data/FAST_LIVO2/test/fast_livo_xiaojuchang.pcd
+    save_pcd_en: true
+    output_pcd_path: /home/pcl/mesh/livomesh/output/test_binary_output.pcd
+
+Filter:
+    enable: true
+    Radius: 0.13
+    Max error: 1.0
+    remove_isolated: true

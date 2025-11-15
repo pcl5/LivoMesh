@@ -1,0 +1,3 @@
+[submodule "3rdparty/CCCoreLib"]
+	path = 3rdparty/CCCoreLib
+	url = https://github.com/CloudCompare/CCCoreLib.git

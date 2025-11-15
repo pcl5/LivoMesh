@@ -1,0 +1,45 @@
+当前阶段：初期计划阶段
+
+一、初期计划：
+1、基于TSDF构建mesh模型
+具体操作：
+1.1、将lidar点云数据导入，方式可通过只导入完整pcd/ply地图，或导入单帧pcd/ply的文件和每帧pcd/ply的位姿进行拼接。
+1.2、将点云去除噪声，压薄
+1.3、通过TSDF构建mesh三角网格
+1.4、将三角网格导入mvs_texturing中贴图
+1.5、cuda做计算优化，环境为ubuntu20.04, cuda==11.8, open3d==0.18.0, opencv==4.2.0, libtorch
+
+二、具体要求：
+(1)config/fast_livo2.yaml里面要有参数：
+Base：
+    cuda_en: False # True/False,一开始先为false
+    pcl_type: 0 # 0:pcd, 1:ply
+    pcl_load: -1 # -1 为直接导入完成pcd/ply，1 为单帧pcd/ply + 位姿导入
+    data_path: ./data/FAST_LIVO2/
+
+Filter： #仿照cloudcompare里面的过滤参数和方式
+    Radius = 0.08 #Filter noise Neighbors
+    Max error = 1.00 # Relative
+
+(2)文件夹结构：
+├── config
+│   └── fast_livo2.yaml
+├── data
+│   └── FAST_LIVO2
+│       ├── color_poses.txt
+│       ├── depth_poses.txt
+│       ├── depths
+│       ├── images
+│       └── xiaojuchang.pcd
+├── include
+├── interface.txt
+├── plan.txt
+├── reference #参考代码
+└── src
+
+
+三、代码规范：
+(1)用C++完成，尽可能简洁，要有必要的中文注释
+(2)不能使用emoji进行任何命名or注释
+(3)代码可复用，接口对接好
+(4)每写好一个模块，把该模块的接口文写入reference.txt下，方便后续使用

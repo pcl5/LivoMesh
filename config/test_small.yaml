@@ -1,0 +1,8 @@
+Base:
+    depth_path: /home/pcl/mesh/livomesh/data/FAST_LIVO2/test_binary.pcd
+    output_path: /home/pcl/mesh/livomesh/output
+    save_pcd_en: true
+
+Filter:
+    enable: true
+    Radius: 0.05
