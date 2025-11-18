@@ -236,7 +236,7 @@ void writeBinaryCloud(const fs::path& output, const CCCoreLib::ReferenceCloud& f
     }
 }
 
-std::unique_ptr<CCCoreLib::ReferenceCloud> runFilter(CCCoreLib::PointCloud& cloud, const Config::Filter& cfg, double* octreeMs, double* filterMs) {
+std::unique_ptr<CCCoreLib::ReferenceCloud> runFilter(CCCoreLib::PointCloud& cloud, const tsdf::FilterConfig& cfg, double* octreeMs, double* filterMs) {
     const auto octreeStart = std::chrono::steady_clock::now();
     CCCoreLib::DgmOctree octree(&cloud);
     if (octree.build() <= 0) {
@@ -279,7 +279,7 @@ int main(int argc, char** argv) {
     }
 
     try {
-        const Config cfg = loadConfig(argv[1]);
+        const tsdf::AppConfig cfg = tsdf::loadAppConfig(argv[1]);
         std::cout << "输入点云: " << cfg.base.depth_path << '\n';
         if (!cfg.filter.enable) {
             std::cout << "Filter.enable=false，跳过噪声滤波。\n";

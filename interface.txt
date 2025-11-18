@@ -1,5 +1,5 @@
 tsdf::AppConfig loadAppConfig(const std::filesystem::path &configPath)
-    读取 fast_livo2.yaml 内的 Base/Filter 配置，返回统一结构体，已自动修正 data_path。
+    读取 fast_livo2.yaml 内的 Base/Filter 配置，自动补全 data_root/rgb/depth/output 等路径并完成参数校验。
 
 tsdf::LidarDataset loadLidarDataset(const AppConfig &config)
     根据配置载入 lidar 点云，支持整图 (-1) 或多帧 (1) 模式，默认输出合并点云与帧列表。

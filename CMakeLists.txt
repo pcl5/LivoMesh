@@ -25,7 +25,7 @@ file(GLOB_RECURSE LIVOMESH_APP_SOURCES
 
 if(LIVOMESH_APP_SOURCES)
     if(CCCORELIB_USE_QT_CONCURRENT)
-        find_package(Qt5 COMPONENTS Concurrent REQUIRED)
+        find_package(Qt6 COMPONENTS Concurrent REQUIRED)
     endif()
     add_executable(livomesh_app ${LIVOMESH_APP_SOURCES})
 
@@ -40,7 +40,7 @@ if(LIVOMESH_APP_SOURCES)
     )
 
     if(CCCORELIB_USE_QT_CONCURRENT)
-        target_link_libraries(livomesh_app PRIVATE Qt5::Concurrent)
+        target_link_libraries(livomesh_app PRIVATE Qt6::Concurrent)
     endif()
 else()
     message(STATUS "No sources found under src/. Skipping livomesh_app target.")
